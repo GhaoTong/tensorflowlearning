@@ -253,11 +253,9 @@ def train_model(
   plt.plot(training_rmse, label="training")
   plt.plot(validation_rmse, label="validation")
   plt.legend()
-  plt.show()
 
   return linear_regressor
 
-'''
 _ = train_model(
     learning_rate=1.0,
     steps=500,
@@ -267,7 +265,6 @@ _ = train_model(
     training_targets=training_targets,
     validation_examples=validation_examples,
     validation_targets=validation_targets)
-    '''
 
 """## 离散特征的独热编码
 
@@ -382,7 +379,7 @@ def construct_feature_columns():
     bucketized_rooms_per_person])
   
   return feature_columns
-'''
+
 _ = train_model(
     learning_rate=1.0,
     steps=500,
@@ -392,7 +389,6 @@ _ = train_model(
     training_targets=training_targets,
     validation_examples=validation_examples,
     validation_targets=validation_targets)
-'''
 
 """### 解决方案
 
@@ -524,9 +520,7 @@ def construct_feature_columns():
       training_examples["rooms_per_person"], 7))
   
   # YOUR CODE HERE: Make a feature column for the long_x_lat feature cross
-  #long_x_lat = tf.feature_column.crossed_column(set([longitude,latitude]), hash_bucket_size=1000)
-  long_x_lat = tf.feature_column.crossed_column(
-  set([bucketized_longitude, bucketized_latitude]), hash_bucket_size=1000)
+  long_x_lat = tf.feature_column.crossed_column( set([longitude,latitude]), hash_bucket_size=1000  )
   
   feature_columns = set([
     bucketized_longitude,
